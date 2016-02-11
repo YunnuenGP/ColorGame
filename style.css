@@ -3,6 +3,18 @@ body{
 	color: white;
 }
 
+button{
+	text-transform: capitalize;
+}
+
+.selected{
+	background: blue;
+}
+
+.hidden{
+	display: none;
+}
+
 .square {
 	width: 30%;
 	background: purple;
@@ -14,4 +26,11 @@ body{
 #container{
 	margin: 0 auto;
 	max-width: 600px;
+}
+
+#stripe{
+	background: white;
+	height: 30px;
+	text-align: center;
+	color:black;
 }
