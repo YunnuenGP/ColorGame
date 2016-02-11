@@ -1,4 +1,4 @@
-var gameColors = (function(){
+var gameColors = function(){
 	const BASE_SQUARES = 3;
 
 	var squareNumber = BASE_SQUARES * 2;
@@ -126,6 +126,9 @@ var gameColors = (function(){
 			elements[i].classList.remove(clss);
 		}
 	}
-}());
+};
 
-gameColors.init();
+window.onload = function(){
+	var game = new gameColors();
+	game.init();
+}
