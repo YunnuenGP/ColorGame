@@ -1,14 +1,44 @@
 body{
 	background-color: #232323;
 	color: white;
+	font-family: "Montserrat", "Avenir";
+	margin: 0;	
 }
 
 button{
-	text-transform: capitalize;
+	background: none;
+	border: none;
+	color: steelblue;
+	height: 100%;
+	font-size: inherit;
+	font-weight: 700;
+	letter-spacing: 1px;
+	outline: none;
+	text-transform: uppercase;
+	transition: all 0.3s;
+	/*Web browser support*/
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+}
+
+button:hover{
+	color: white;
+	background: steelblue;
+}
+
+h1{	
+	background: steelblue;
+	font-weight: normal;
+	line-height: 1.1;
+	margin : 0;
+	padding: 20px 0;
+	text-align: center;
+	text-transform: uppercase;
 }
 
 .selected{
-	background: blue;
+	color: white;
+	background: steelblue;
 }
 
 .hidden{
@@ -21,10 +51,15 @@ button{
 	padding-bottom: 30%;
 	float: left;
 	margin: 1.66%;
+	border-radius: 15%;
+	transition: background 0.5s;
+	/*Web browser support*/
+	-webkit-transition: background 0.5s;
+	-moz-transition: background 0.5s;
 }
 
 #container{
-	margin: 0 auto;
+	margin: 20px auto;
 	max-width: 600px;
 }
 
@@ -33,4 +68,16 @@ button{
 	height: 30px;
 	text-align: center;
 	color:black;
+}
+
+#colorDisplay{
+	font-size: 200%;
+	display: block;
+}
+
+#message{
+	font-family: inherit;
+	font-weight: 700;
+	display: inline-block;
+	width: 15%;
 }
