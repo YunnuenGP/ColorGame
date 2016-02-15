@@ -7,6 +7,8 @@ var gameColors = function(){
 	var squares = document.getElementsByClassName('square');
 	var colorDisplay = document.getElementById('colorDisplay');
 	var messageDisplay = document.getElementById('message');
+	var triesDisplay = document.getElementById('tries');
+	var numberOfTries = 0;
 	var resetButton = document.getElementById('reset');
 	
 
@@ -15,17 +17,19 @@ var gameColors = function(){
 
 	function init() {	
 		setUpModeButtons();
+		setUpGameLogic();
 		start();
 	}
 
 	function start() {
+		numberOfTries = 0;
 		messageDisplay.textContent = '';
+		triesDisplay.textContent = 'Tries: ' +  numberOfTries;
 		resetButton.textContent = 'New Colors';
 		h1.style.removeProperty('background');
 		generatedColors = generateRandomColors(squareNumber);
 		pickedColor = pickColor(generatedColors);
 		colorDisplay.textContent = pickedColor;
-
 		setUpSquares();
 	}
 
@@ -46,21 +50,34 @@ var gameColors = function(){
 		}
 	}
 
-	function setUpSquares() {
+	function setUpSquares(){
 		for (var i = 0; i < squares.length; i++){
-			//adding initial colors to squares and hiding the rest of them
+		//adding initial colors to squares and hiding the rest of them
 			if(generatedColors[i]){
 				squares[i].classList.remove('hidden');
 				squares[i].style.background = generatedColors[i];
 			}else{
 				squares[i].classList.add('hidden');
-			}		
+				}		
+		//adding initial colors to squares and hiding the rest of them
+			if(generatedColors[i]){
+				squares[i].classList.remove('hidden');
+				squares[i].style.background = generatedColors[i];
+			}else{
+				squares[i].classList.add('hidden');
+				}		
+			}
+		}		
 
+	function setUpGameLogic() {
+		for (var i = 0; i < squares.length; i++){
 			//add click listeners to squares
 			squares[i].addEventListener('click', function(){
 				//grab color of clicked square
 				var clickedColor = this.style.background;
-
+				if(messageDisplay.textContent != 'Correct!'){
+					increaseTries();
+				}
 				//compare color to pickedColor
 				if(clickedColor === pickedColor){
 					messageDisplay.textContent = 'Correct!';
@@ -73,6 +90,11 @@ var gameColors = function(){
 				}
 			});
 		}
+	}
+
+	function increaseTries(){
+		numberOfTries = numberOfTries + 1;
+		triesDisplay.textContent = 'Tries: ' +  numberOfTries;
 	}
 
 	function changeColor(color) {
