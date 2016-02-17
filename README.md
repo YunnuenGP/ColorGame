@@ -6,3 +6,4 @@ Javascript based color game
 2.- Dynamic square creation.  
 3.- Solve UI conflicts (full responsive).  
 4.- Handle states for intro screen, game in progress and game over.  
+5.- Add Support for storage (localStorage) of game progress/status.  
